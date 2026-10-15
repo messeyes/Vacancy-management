@@ -1,6 +1,7 @@
 package mess.gestaovagas.modules.candidate.controller;
 
 
+import jakarta.validation.Valid;
 import mess.gestaovagas.modules.candidate.CandidateEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +14,7 @@ public class CandidateController {
 
 
     @PostMapping("/")
-    public void create(@RequestBody CandidateEntity candidateEntity){
+    public void create(@Valid @RequestBody CandidateEntity candidateEntity){
         System.out.println("Candidato");
         System.out.println(candidateEntity.getEmail());
     }
