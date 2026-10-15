@@ -2,6 +2,7 @@ package mess.gestaovagas.modules.candidate.controller;
 
 
 import jakarta.validation.Valid;
+import mess.gestaovagas.exceptions.UserFoundException;
 import mess.gestaovagas.modules.candidate.CandidateEntity;
 import mess.gestaovagas.modules.candidate.CandidateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,11 @@ public class CandidateController {
 
     @PostMapping("/")
     public CandidateEntity create(@Valid @RequestBody CandidateEntity candidateEntity){
-       return this.candidateRepository.save(candidateEntity);
+        this.candidateRepository
+        .findByUsernameOrEmail(candidateEntity.getUsername(), candidateEntity.getEmail())
+        .ifPresent((user) -> {
+            throw new UserFoundException();
+        });
+        return this.candidateRepository.save(candidateEntity);
     }
 }
