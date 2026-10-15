@@ -2,9 +2,7 @@ package mess.gestaovagas.modules.candidate.controller;
 
 
 import jakarta.validation.Valid;
-import mess.gestaovagas.exceptions.UserFoundException;
 import mess.gestaovagas.modules.candidate.CandidateEntity;
-import mess.gestaovagas.modules.candidate.CandidateRepository;
 import mess.gestaovagas.modules.candidate.service.CreateCandidateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
