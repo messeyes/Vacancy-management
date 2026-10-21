@@ -43,6 +43,6 @@ public class AuthCompanyService {
                 .withExpiresAt(Instant.now().plus(Duration.ofHours(2)))
                 .withSubject(company.getId().toString())
                 .sign(algorithm);
-                return token;
+        return token;
     }
 }
