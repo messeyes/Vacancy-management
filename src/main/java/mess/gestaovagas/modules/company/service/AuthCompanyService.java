@@ -50,7 +50,7 @@ public class AuthCompanyService {
                 .withClaim("roles", Arrays.asList("COMPANY"))
                 .sign(algorithm);
 
-        AuthCompanyResponseDTO.builder()
+        var authCompanyResponseDTO = AuthCompanyResponseDTO.builder()
                 .access_token(token)
                 .expires_in(expiresIn.toEpochMilli())
                 .build();
