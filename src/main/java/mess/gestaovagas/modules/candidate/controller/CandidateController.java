@@ -40,7 +40,7 @@ public class CandidateController {
     }
 
     @GetMapping("/")
-    @PreAuthorize("hasRole('candidate')")
+    @PreAuthorize("hasRole('CANDIDATE')")
     public ResponseEntity<Object> get(HttpServletRequest request){
         var idCandidate = request.getAttribute("candidate_id");
         try {
@@ -52,7 +52,7 @@ public class CandidateController {
     }
 
     @GetMapping("/job")
-    @PreAuthorize("hasRole('candidate')")
+    @PreAuthorize("hasRole('CANDIDATE')")
     public List<JobEntity> findJobByFilter(@RequestParam String filter){
         return this.listAllJobsByFilterService.execute(filter);
     }
