@@ -1,5 +1,6 @@
 package mess.gestaovagas.modules.company.entities;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -21,10 +22,14 @@ public class JobEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
+    @Schema(example = "vacancy for design")
     private String description;
+    @Schema(example = "GYMPass, health plan")
     private String benefits;
 
     @NotBlank(message = "This field is required.")
+    @Schema(example = "SENIOR")
     private String level;
 
     @ManyToOne()
