@@ -5,12 +5,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import mess.gestaovagas.modules.candidate.CandidateEntity;
 import mess.gestaovagas.modules.candidate.service.CreateCandidateService;
+import mess.gestaovagas.modules.candidate.service.ListAllJobsByFilterService;
 import mess.gestaovagas.modules.candidate.service.ProfileCandidateService;
+import mess.gestaovagas.modules.company.entities.JobEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -22,6 +25,9 @@ public class CandidateController {
 
     @Autowired
     private ProfileCandidateService profileCandidateService;
+
+    @Autowired
+    private ListAllJobsByFilterService listAllJobsByFilterService;
 
     @PostMapping("/")
     public ResponseEntity<Object>create(@Valid @RequestBody CandidateEntity candidateEntity){
@@ -44,4 +50,11 @@ public class CandidateController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    @GetMapping("/job")
+    @PreAuthorize("hasRole('candidate')")
+    public List<JobEntity> findJobByFilter(@RequestParam String filter){
+        return this.listAllJobsByFilterService.execute(filter);
+    }
+
 }
