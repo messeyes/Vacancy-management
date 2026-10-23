@@ -22,7 +22,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 
 @Service
 public class AuthCandidateService {
-    @Value("${security-token.secret-candidate}")
+    @Value("${security.token.secret-candidate}")
     private String secretKey;
 
     @Autowired
