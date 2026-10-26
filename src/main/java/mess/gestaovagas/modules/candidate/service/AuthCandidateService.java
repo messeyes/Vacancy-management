@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import javax.naming.AuthenticationException;
 
-import mess.gestaovagas.modules.candidate.CandidateRepository;
+import mess.gestaovagas.modules.candidate.repository.CandidateRepository;
 import mess.gestaovagas.modules.candidate.dto.AuthCandidateRequestDTO;
 import mess.gestaovagas.modules.candidate.dto.AuthCandidateResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;

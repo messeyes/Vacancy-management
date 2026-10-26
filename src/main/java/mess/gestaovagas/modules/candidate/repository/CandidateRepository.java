@@ -1,5 +1,6 @@
-package mess.gestaovagas.modules.candidate;
+package mess.gestaovagas.modules.candidate.repository;
 
+import mess.gestaovagas.modules.candidate.entity.CandidateEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

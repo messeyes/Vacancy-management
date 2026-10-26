@@ -11,7 +11,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
-import mess.gestaovagas.modules.candidate.CandidateEntity;
+import mess.gestaovagas.modules.candidate.entity.CandidateEntity;
 import mess.gestaovagas.modules.candidate.dto.ProfileCandidateResponseDTO;
 import mess.gestaovagas.modules.candidate.service.CreateCandidateService;
 import mess.gestaovagas.modules.candidate.service.ListAllJobsByFilterService;

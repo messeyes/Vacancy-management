@@ -1,8 +1,8 @@
 package mess.gestaovagas.modules.candidate.service;
 
 import mess.gestaovagas.exceptions.UserFoundException;
-import mess.gestaovagas.modules.candidate.CandidateEntity;
-import mess.gestaovagas.modules.candidate.CandidateRepository;
+import mess.gestaovagas.modules.candidate.entity.CandidateEntity;
+import mess.gestaovagas.modules.candidate.repository.CandidateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

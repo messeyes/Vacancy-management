@@ -1,8 +1,7 @@
 package mess.gestaovagas.modules.candidate.service;
 
 
-import mess.gestaovagas.modules.candidate.CandidateRepository;
-import mess.gestaovagas.modules.candidate.dto.AuthCandidateResponseDTO;
+import mess.gestaovagas.modules.candidate.repository.CandidateRepository;
 import mess.gestaovagas.modules.candidate.dto.ProfileCandidateResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
