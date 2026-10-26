@@ -1,9 +1,16 @@
 package mess.gestaovagas.modules.company.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.junit.Before;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class CreateJobDTO {
 
     @Schema(example = "vacancy for junior developers", requiredMode = Schema.RequiredMode.REQUIRED)
