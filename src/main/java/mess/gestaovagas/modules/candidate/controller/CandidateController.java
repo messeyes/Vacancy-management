@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import mess.gestaovagas.modules.candidate.entity.CandidateEntity;
 import mess.gestaovagas.modules.candidate.dto.ProfileCandidateResponseDTO;
+import mess.gestaovagas.modules.candidate.service.ApplyJobCandidateService;
 import mess.gestaovagas.modules.candidate.service.CreateCandidateService;
 import mess.gestaovagas.modules.candidate.service.ListAllJobsByFilterService;
 import mess.gestaovagas.modules.candidate.service.ProfileCandidateService;
@@ -38,6 +39,9 @@ public class CandidateController {
 
     @Autowired
     private ListAllJobsByFilterService listAllJobsByFilterService;
+
+    @Autowired
+    private ApplyJobCandidateService applyJobCandidateService;
 
     @PostMapping("/")
     @Operation(summary = "Candidate's registration")
@@ -89,4 +93,19 @@ public class CandidateController {
         return this.listAllJobsByFilterService.execute(filter);
     }
 
+    @PostMapping("/job/apply")
+    @PreAuthorize("hasRole('CANDIDATE')")
+    @SecurityRequirement(name = "jwt_auth")
+    @Operation(summary = "Candidate's enrolment for a vacancy.")
+    public ResponseEntity<Object> applyJob(HttpServletRequest request, @RequestBody UUID idJob){
+
+        var idCandidate = request.getAttribute("candidate_id");
+
+        try {
+            var result  = this.applyJobCandidateService.execute(UUID.fromString(idCandidate.toString()), idJob);
+            return ResponseEntity.ok().body(result);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }
