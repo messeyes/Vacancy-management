@@ -23,3 +23,14 @@ jobs:
         run: docker build -t messeyes/gestaovagas .
       - name: Publish image
         run: docker push messeyes/gestaovagas
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Pull image docker hub
+        run: docker pull messeyes/gestaovagas:latest
+      - name: remove container
+        run: docker rm -f
+      - name: Run docker container gestaovagas
+        run: docker run -d -p 8080:8080 -e DATABASE_URL=${{secrets.DATABASE_URL}} -e DATABASE_PASSWORD=${{secrets.DATABASE_PASSWORD}} -e DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}} --name gestaovagas messeyes/gestaovagas
+
