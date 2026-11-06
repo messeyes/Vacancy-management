@@ -18,6 +18,7 @@ Throughout the development of this project, I was able to practice:
 - **Swagger:** documenting API endpoints and testing requests.
 - **Monitoring:** configuring Actuator, Prometheus, and Grafana to collect and visualize application metrics.
 - **AWS:** configuring an RDS database and an EC2 instance with Ubuntu.
+- **CI/CD:** learning how to use GitHub Actions to automate workflows and configure build and test pipelines.
 - **Docker:** using Docker Compose to run PostgreSQL and monitoring services.
 
 ## Course Certificate
